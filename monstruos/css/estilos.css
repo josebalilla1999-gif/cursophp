@@ -9,6 +9,7 @@
     --color-secundario: rgb(17, 100, 0);
     --color-terciario: rgb(78, 0, 78);
     --color-calabaza: rgb(175, 64, 0);
+    --color-cuarto: rgb(175, 0, 0);
 }
 
 body{
@@ -27,18 +28,28 @@ header{
 h1, h2{
     text-align: center;
     margin-top: 1.5rem;
-    border-bottom: 2px solid #333;
     font-family: 'horror';
 }
 
 h1{
     font-size: 4rem;
     color: var(--color-secundario);
+    border-bottom: 2px solid var(--color-terciario);
 }
 
 h2{
     font-size: 2rem;
     color: var(--color-calabaza);
+}
+
+p strong{
+    font-size: 110%;
+}
+
+a{
+    font-size: 2rem;
+    color: var(--color-calabaza);
+    text-decoration: none;
 }
 
 main{
@@ -64,6 +75,10 @@ ul#criaturas li p{
     font-size: 1.25rem;
 }
 
+ul#criaturas li p:last-child{
+    color: var(--color-cuarto);
+}
+
 ul#criaturas li h2{
     height: 5rem;
 }
@@ -79,6 +94,7 @@ ul#criaturas li h2{
 
 ul#criaturas li figure img{
     max-width:100%;
+    border-radius: 1rem;
 }
 
 @media(min-width: 700px) {
