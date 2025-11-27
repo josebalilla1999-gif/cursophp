@@ -1,6 +1,12 @@
+@font-face {
+    font-family: 'horror';
+    src: url('../templates/LETHER400.ttf');
+}
+
 body{
     color: #333;
     line-height: 1.6;
+    font-family: 'horror';
     /* overflow-x: hidden; */
 }
 
@@ -13,7 +19,7 @@ h1, h2{
     margin-top: 1.5rem;
     color: #0077b6;
     border-bottom: 2px solid #333;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'horror';
 }
 
 h1{

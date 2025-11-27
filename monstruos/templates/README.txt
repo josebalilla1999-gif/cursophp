@@ -1,0 +1,3 @@
+To learn more about the font family and its license, visit https://www.fontmirror.com/lether
+
+LETHER, a font dripping with gothic charm, evokes a sense of mystery and macabre elegance. Its bold, dripping letters suggest a melting substance, adding a sinister yet stylish touch.  Perfect for Halloween designs, horror movie posters, or any project needing a dark, captivating aesthetic. The slightly uneven drips provide a handcrafted feel, setting it apart from cleaner fonts.
