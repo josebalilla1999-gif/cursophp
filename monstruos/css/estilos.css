@@ -3,10 +3,20 @@
     src: url('../templates/LETHER400.ttf');
 }
 
+:root{
+    --color-principal: rgb(100, 0, 0);
+    --tamanio-inicial: 120%;
+    --color-secundario: rgb(17, 100, 0);
+    --color-terciario: rgb(78, 0, 78);
+    --color-calabaza: rgb(175, 64, 0);
+}
+
 body{
     color: #333;
     line-height: 1.6;
     font-family: 'horror';
+    color: var(--color-principal);
+    background-color: rgba(0, 0, 0, 0.5);
     /* overflow-x: hidden; */
 }
 
@@ -17,17 +27,18 @@ header{
 h1, h2{
     text-align: center;
     margin-top: 1.5rem;
-    color: #0077b6;
     border-bottom: 2px solid #333;
     font-family: 'horror';
 }
 
 h1{
-    font-size: 2.5rem;
+    font-size: 4rem;
+    color: var(--color-secundario);
 }
 
 h2{
-    font-size: 1.5rem;
+    font-size: 2rem;
+    color: var(--color-calabaza);
 }
 
 main{
@@ -41,11 +52,16 @@ ul#criaturas{
 }
 
 ul#criaturas li{
-    border: 1px solid #0077b6;
+    border: 1px solid var(--color-terciario);
     flex: 1 0 calc(50% - 1rem);
     padding: 1rem;
     border-radius: 1rem;
     max-width: calc(50% - 1rem);
+    background-color: black;
+}
+
+ul#criaturas li p{
+    font-size: 1.25rem;
 }
 
 ul#criaturas li h2{
