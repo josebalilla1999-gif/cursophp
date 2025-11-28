@@ -1,0 +1,1 @@
+<h3 style="text-align: center; font-size: 2rem;">Desarrollo de contenidos sobre Array</h3>

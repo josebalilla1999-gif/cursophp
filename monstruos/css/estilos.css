@@ -69,6 +69,7 @@ ul#criaturas li{
     border-radius: 1rem;
     max-width: calc(50% - 1rem);
     background-color: black;
+    transition: all 0.5s ease;
 }
 
 ul#criaturas li p{
@@ -77,6 +78,15 @@ ul#criaturas li p{
 
 ul#criaturas li p:last-child{
     color: var(--color-cuarto);
+}
+
+ul#criaturas li button{
+    display: none;
+}
+
+ul#criaturas li:hover{
+    cursor: pointer;
+    transform: scale(105%);
 }
 
 ul#criaturas li h2{

@@ -38,8 +38,16 @@
             '<input type="hidden" value="' . $monstruo['origen']['anio'] . '" name="anio">' . 
             '<button>Ver detalle</button></form></li>';
         }
-        echo '</ul></main>';
+        echo '</ul>
+    <script>
+        const crias = document.querySelectorAll("#criaturas li");
+        for(let cria of crias){
+            cria.addEventListener("click", function() {
+                this.querySelector("form").submit();
+            })
+        }
+    </script></main>'
     ?>
-</body>
+    </body>
 </html>
 
