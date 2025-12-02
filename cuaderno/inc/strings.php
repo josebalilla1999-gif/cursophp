@@ -109,5 +109,7 @@
         $textoCambiado = str_replace('tetungas', 'mabungos', $texto);
         echo $texto . '<br>';
         echo $textoCambiado . '<br>';
+        echo trim(' La mama de la mama de la mama de la mama de la mama de la mama de la mama de la mama de la mama de la mama... ', ' ') . '<br>';
+        echo str_replace(' ', '', ' Arremangala arrempujala arremangala arrempujala arremangala arrempujala arremangala arrempujala... ') . '<br>';
     ?></p>
 </section>

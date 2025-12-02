@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <script defer src="js/validar.js"></script>
+    <link rel = "stylesheet" href= "css/estilos.css">
+</head>
+
+<body>
+    <form id="form-inscripcion" action="inc/inscripcion.php" method="POST" novalidate>
+        <label>
+            Nombre:
+            <input type="text" name="nombre" id="nombre">
+        </label>
+
+        <label>
+            Email:
+            <input type="email" name="email" id="email">
+        </label>
+
+        <label>
+            Edad:
+            <input type="number" name="edad" id="edad" min="1" max="120">
+        </label>
+
+        <label>
+            Provincia:
+            <select name="provincia" id="provincia">
+                <option value="" selected disabled>-- Seleccionar --</option>
+                <option value="Madrid">Madrid</option>
+                <option value="Barcelona">Barcelona</option>
+                <option value="Sevilla">Sevilla</option>
+                <option value="Albacete">Albacete</option>
+            </select>
+        </label>
+
+        <button type="submit">Enviar</button>
+
+        <output id="mensaje" class="error"></output>
+    </form>
+</body>
+
+</html>

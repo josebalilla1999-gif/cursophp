@@ -1,0 +1,102 @@
+@font-face {
+    font-family: 'starwars';
+    src: url('../templates/StarJedi400.ttf');
+}
+
+body{
+    background-color: rgb(0,0,0, 0.5);
+    align-items: center;
+    font-family: 'starwars';
+}
+
+form{
+    padding: 20px;
+    margin: 20px;
+    border: 2px solid rgb(0,0,0);
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    height: calc(100vh - 40px - 40px - 10px);
+}
+
+p{
+    padding: 20px;
+    margin: 20px;
+    border: 2px solid rgb(0,0,0);
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    font-family: 'Calibri';
+}
+
+a{
+    font-family: 'starwars';
+}
+
+h2{
+    padding: 20px;
+    margin: 20px;
+    border: 2px solid rgb(0,0,0);
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+ul{
+    padding: 20px;
+    margin: 20px;
+    border: 2px solid rgb(0,0,0);
+    border-radius: 10px;
+    background-color: rgba(255, 0, 0, 0.25);
+    list-style: none;
+    font-family: 'Calibri';
+}
+
+label{
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+input{
+    width: 100%;
+    height: 30px;
+    font-family: 'Calibri';
+}
+
+input:focus{
+    background-color: lightgray;
+}
+
+select{
+    width: 100%;
+    height: 30px;
+    font-family: 'starwars';
+}
+
+select:hover{
+    cursor: grab;
+}
+
+option:hover{
+    cursor: grabbing;
+}
+
+button{
+    margin-top: 10px;
+    background-color: chartreuse;
+    justify-content: center;
+    align-items: center;
+    font-family: 'starwars';
+}
+
+button:hover{
+    background-color: limegreen;
+    cursor: pointer;
+}
+
+output{
+    display: none;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 2px solid rgb(0,0,0);
+    background-color: rgba(255, 0, 0, 0.25);
+}
