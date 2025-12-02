@@ -15,6 +15,10 @@ header{
     padding: 0 0 1rem 0;
 }
 
+/* header::before{
+    content: 'Esta es la cabecera';
+} */
+
 h1, h2{
     text-align: center;
     margin-top: 1.5rem;
@@ -78,6 +82,10 @@ code{
     border-radius: 25px;
     line-height: 1.5;
 }
+
+/* code .language-php::before{
+    font-size: 1.2em;
+} */
 
 .paint{
     font-family: 'Courier New', Courier, monospace;

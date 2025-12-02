@@ -29,6 +29,12 @@ $tematicas = [
         "menu" => "Funciones",
         "slug" => "funciones",
         "descripcion" => "Aprendemos a crear funciones sin invocar a seres de otras dimensiones."
-    ]
+    ],
+    "strings" => [
+        "titulo" => "Strings en PHP",
+        "menu" => "Strings",
+        "slug" => "strings",
+        "descripcion" => "Un string es simplemente una cadena de texto. En PHP lo usamos para representar palabras, frases, rutas, HTML, JSON, consultas SQL… prácticamente todo lo que no sean números o arrays."
+    ],
 ];
 ?>

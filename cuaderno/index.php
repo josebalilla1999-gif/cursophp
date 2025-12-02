@@ -9,6 +9,7 @@ require 'inc/datos.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cuaderno PHP</title>
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/a11y-dark.min.css">
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 
@@ -48,5 +49,7 @@ require 'inc/datos.php';
     <footer>
         <p>Hecho por er Chemita, con su gracia y su arte. Ole!</p>
     </footer>
+    <script src="js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
 </body>
 </html>
