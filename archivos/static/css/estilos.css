@@ -1,0 +1,145 @@
+@font-face {
+    font-family: 'minecraft';
+    src: url('../Minecraftia.ttf');
+}
+
+body{
+    line-height: 2;
+    color: var(--color-principal);
+    background-color: rgba(0, 0, 0, 0.33);
+    font-family: 'minecraft';
+    /* overflow-x: hidden; */
+}
+
+header{
+    padding: 0 0 1rem 0;
+}
+
+/* header::before{
+    content: 'Esta es la cabecera';
+} */
+
+h1, h2{
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+h1{
+    font-size: 4rem;
+}
+
+h2{
+    font-size: 3rem;
+}
+
+h3{
+    padding-top: 20px;
+    border-top: 1px dotted rgb(0, 63, 0);
+}
+
+p{
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+nav{
+    border-bottom: 1px solid rgb(0, 63, 0);
+    position: fixed;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    top: 0;
+    padding-top: 20px;
+}
+
+nav ul{
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    list-style: none;
+    padding: 0;
+}
+
+nav ul a{
+    text-decoration: none;
+    color: rgb(0, 255, 0);
+}
+
+main{
+    padding-top: 20px;
+}
+
+code{
+    display: block;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding-left: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: calc(100% - 50px - 50px);
+    background-color: rgb(0,0,0, 0.75);
+    color: rgb(0, 255, 0);
+    border-radius: 25px;
+    line-height: 1.5;
+}
+
+/* code .language-php::before{
+    font-size: 1.2em;
+} */
+
+.paint{
+    font-family: 'Courier New', Courier, monospace;
+    display: block;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 10px;
+    padding-left: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: calc(100% - 50px - 50px);
+    background-color: rgb(255,255,255);
+    border-radius: 25px;
+}
+
+ul{
+    font-family: 'Calibri';
+    display: block;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 10px;
+    padding-left: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: calc(100% - 50px - 50px);
+    background-color: rgb(255,255,255);
+    border-radius: 25px;
+}
+
+table{
+    justify-content: center;
+    border: 5px double rgb(255,255,255);
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 10px;
+    padding-left: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: calc(100% - 50px - 50px);
+}
+
+footer{
+    border-top: 1px solid rgb(0, 63, 0);
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    bottom: 0;
+    margin-bottom: 0px;
+    margin-top: 10px;
+    color: rgb(0, 255, 0);
+}
+
+footer p{
+    text-align: right;
+    margin: 0px;
+    margin-top: 5px;
+    padding: 0px;
+}

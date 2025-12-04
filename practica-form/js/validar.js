@@ -7,10 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const mensaje = document.getElementById('mensaje');
 
     form.addEventListener('submit', (event) => {
-        const n = nombre.value.trim();
-        const e = email.value.trim();
+        const regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
-        if(n === '' || e === '' || edad.value === '' || provincia.value === '') {
+        if(nombre.value === "" || email.value === "" || email.match(regEmail) || edad.value === "" || provincia.value === "") {
             mensaje.innerText = 'Echa el freno, magdaleno, que tienes errores en el formulario';
             mensaje.setAttribute('style', 'display: flex;');
             const elementos = document.querySelectorAll('input, select');
@@ -20,6 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     elemento.setAttribute('style', 'border: 2px solid red;');
                     elemento.setAttribute('placeholder', 'Pero bro, escribe algo, no seas vago');
                     elemento.nextElementSibling.innerText = 'Revisa este campo, mi pana. No tienes na puesto';
+                    elemento.nextElementSibling.setAttribute('style', 'color: red; font-size: 12px;');
+                }else{
+                    elemento.setAttribute('style', 'border: 2px solid green;');
+                    elemento.setAttribute('placeholder', '');
+                    elemento.nextElementSibling.innerText = '';
                 }
             }
         }

@@ -36,5 +36,11 @@ $tematicas = [
         "slug" => "strings",
         "descripcion" => "Un string es simplemente una cadena de texto. En PHP lo usamos para representar palabras, frases, rutas, HTML, JSON, consultas SQL… prácticamente todo lo que no sean números o arrays."
     ],
+    "archivos" => [
+        "titulo" => "Archivos en PHP",
+        "menu" => "Archivos",
+        "slug" => "archivos",
+        "descripcion" => "La gestión de archivos en PHP es una de esas partes del lenguaje que parecen sencillas, pero que esconden mucha potencia. En esencia, PHP nos permite crear, leer, modificar, mover y borrar archivos y directorios directamente desde nuestros scripts. Con esto podemos desde guardar logs hasta gestionar uploads, montar sistemas de plantillas simples o incluso generar archivos para descargar."
+    ]
 ];
 ?>
