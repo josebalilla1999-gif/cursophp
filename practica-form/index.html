@@ -5,25 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario</title>
-    <script defer src="js/validar.js"></script>
+    <script src="js/validar.js"></script>
     <link rel = "stylesheet" href= "css/estilos.css">
 </head>
 
 <body>
-    <form id="form-inscripcion" action="inc/inscripcion.php" method="POST" novalidate>
+    <form id="form-inscripcion" action="inc/gestionar.php" method="POST">
         <label>
             Nombre:
             <input type="text" name="nombre" id="nombre">
+            <span></span>
         </label>
 
         <label>
             Email:
             <input type="email" name="email" id="email">
+            <span></span>
         </label>
 
         <label>
             Edad:
             <input type="number" name="edad" id="edad" min="1" max="120">
+            <span></span>
         </label>
 
         <label>
@@ -35,9 +38,10 @@
                 <option value="Sevilla">Sevilla</option>
                 <option value="Albacete">Albacete</option>
             </select>
+            <span></span>
         </label>
 
-        <button type="submit">Enviar</button>
+        <button id="submit" type="submit">Enviar</button>
 
         <output id="mensaje" class="error"></output>
     </form>

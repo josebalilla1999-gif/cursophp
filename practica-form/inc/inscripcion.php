@@ -1,79 +1,110 @@
 <?php
+$nombre = $email = $edad = $provincia = "";
+$errores = [];
 $exito = false;
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $nombre = trim($_POST['nombre'] ?? '');
-    $email = trim($_POST['email'] ?? '');
-    $edad = trim($_POST['edad'] ?? '');
-    $provincia = trim($_POST['provincia'] ?? '');
+function limpiar($cosa) {
+        return htmlspecialchars($cosa, ENT_QUOTES, "UTF-8");
+    }
 
-    $errores = [];
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    if($nombre === ''){
-        array_push($errores, '¿Que no tienes nombre? Po yo te viá llamá CABESA');
-    }
-    if($email === ''){
-        array_push($errores, 'ahorayatienescorreopelotudo@gmail.com');
-    }
-    if($email !== '' && !str_contains($email, '@')){
-        array_push($errores, 'Toma, te olvidaste de esto, pedazo de genio -> @ <-');
-    }
-    if($email !== '' && !str_contains($email, '.')){
-        array_push($errores, 'Toma, te olvidaste de esto, pedazo de genio -> . <-');
-    }
-    if($edad === ''){
-        array_push($errores, '"La edad no se pregunta", dijo un sabio. Pues pa sabio, lo que aquí me cuelga, pon tu edad.');
-    }
-    if($provincia === ''){
-        array_push($errores, 'Eres ciudadano del mundo, supongo');
+    $nombre    = trim($_POST["nombre"] ?? "");
+    $email     = trim($_POST["email"] ?? "");
+    $edad      = trim($_POST["edad"] ?? "");
+    $provincia = trim($_POST["provincia"] ?? "");
+
+
+
+    // Validación
+    if ($nombre === "") $errores[] = "El nombre está vacío.";
+    if ($email === "" || !str_contains($email, "@")) $errores[] = "Email no válido.";
+    if ($edad === "" || !is_numeric($edad) || $edad < 1 || $edad > 120)
+        $errores[] = "Edad incorrecta.";
+    if ($provincia === "") $errores[] = "Debemos elegir una provincia.";
+
+    // ¿Todo bien?
+    if (empty($errores)) {
+        $exito = true;
     }
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario</title>
-    <link rel = "stylesheet" href= "../css/estilos.css">
+    <title>Inscripción</title>
+    <script defer src="../js/validar.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        form { width: 500px; display: flex; flex-direction: column; gap: 12px; }
+        input, select { padding: 8px; border: 1px solid #aaa; width: 400px;}
+        button { padding: 10px; cursor: pointer; }
+        .error { color: red; margin-bottom: 10px; }
+        .ok { background: #efe; padding: 15px; border: 1px solid #0a0; }
+    </style>
 </head>
 <body>
-    <?php
-        if(!empty($errores)){
-            echo '<h2>Cuando sepas escribir un formulario, me avisas. La has pencao en estos aspectos:</h2>';
-            echo '<ul class="errores">';
-            foreach($errores as $error){
-                echo '<li>' . $error . '</li>';
+
+<form id="form-inscripcion" action="" method="POST">
+
+    <label>
+        Nombre:
+        <input type="text" name="nombre" id="nombre"
+               value="<?=  limpiar($nombre) ?>">
+               <span></span>
+    </label>
+
+    <label>
+        Email:
+        <input type="email" name="email" id="email"
+               value="<?= limpiar($email) ?>">
+               <span></span>
+    </label>
+
+    <label>
+        Edad:
+        <input type="number" name="edad" id="edad" min="1" max="120"
+               value="<?= limpiar($edad) ?>">
+               <span></span>
+    </label>
+
+    <label>
+        Provincia:
+        <select name="provincia" id="provincia">
+            <option value="">-- Seleccionar --</option>
+            <?php
+            $provincias = ["Madrid","Barcelona","Sevilla","Albacete"];
+            foreach ($provincias as $p) {
+                $sel = ($provincia === $p) ? "selected" : "";
+                echo "<option value='$p' $sel>$p</option>";
             }
-            echo '</ul>';
-            if(count($errores) === 1){
-                echo '<p>Un solo error puede ser un despiste, puede ser que te lo perdonemos</p>';
-            }
-            if(count($errores) === 2){
-                echo '<p>Aquí veo yo dos fallos, un despiste puede ser pasable, pero dos...no sé yo</p>';
-            }
-            if(count($errores) === 3){
-                echo '<p>Tres errores como tres neuronas que tienes en tu sistema nervioso, genio</p>';
-            }
-            if(count($errores) > 3){
-                echo '<p>Pregunta seria, ¿tus padres son primos o algo?</p>';
-            }
-        }else{
-            $exito = true;
-        }
-?>
-<?php if($exito === true):?>
-    <p>
-    <!-- echo 'Te llamas ' . ucwords($nombre) . '<br>';
-    echo 'Su correo electrónico es ' . strtolower($email) . '<br>';
-    echo 'Tienes ' . $edad . ' años<br>';
-    echo 'Resides en ' . ucwords($provincia) . '<br>';
-    echo '</p>'; -->
-        <?php echo 'Te llamas ' . ucwords($nombre).'<br>' .
-        'Su correo electrónico es ' . strtolower($email) . '<br>' .
-        'Tienes ' . $edad . ' años<br>' .
-        'Resides en ' . ucwords($provincia)?>
-    </p>
+            ?>
+        </select>
+        <span></span>
+    </label>
+
+    <button type="submit">Enviar</button>
+    <output id="mensaje" class="error"></output>
+</form>
+
+<?php if (!empty($errores)): ?>
+    <div class="error">
+        <ul>
+            <?php foreach ($errores as $error): ?>
+                <li><?= limpiar($error) ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
 <?php endif; ?>
-    <p><a href="../index.html">Regresar al formulario</a></p>
+
+<?php if ($exito): ?>
+<div class="ok">
+    <h3>Datos enviados correctamente</h3>
+    <p><strong>Nombre:</strong> <?= limpiar($nombre) ?></p>
+    <p><strong>Email:</strong> <?= limpiar($email) ?></p>
+    <p><strong>Edad:</strong> <?= limpiar($edad) ?></p>
+    <p><strong>Provincia:</strong> <?= limpiar($provincia) ?></p>
+</div>
+<?php endif; ?>
 </body>
 </html>
