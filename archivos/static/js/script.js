@@ -13,4 +13,6 @@ zona.addEventListener("drop", (e) => {
     alert('Ojo cuidao, acabas de soltar un archivo en la pagina');
     let archivo = e.dataTransfer.files[0];
     console.log(archivo.name);
+    let input = document.getElementById('drag');
+    input.setAttribute('value', archivo);
 });
