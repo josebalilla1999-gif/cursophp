@@ -115,6 +115,40 @@ ul{
     border-radius: 25px;
 }
 
+section{
+    font-family: 'Calibri';
+    display: block;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 10px;
+    padding-left: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: calc(100% - 50px - 50px);
+    background-color: rgb(255,255,255);
+    border-radius: 25px;
+}
+
+label{
+    display: block;
+}
+
+label input{
+    border-radius: 5px;
+    background-color: rgba(15, 13, 128, 0.671);
+    color: white;
+    width: 1000px;
+}
+
+button{
+    background-color: lime;
+    border-radius: 5px;
+}
+
+button:hover{
+    transform: scale(1.1);
+}
+
 table{
     justify-content: center;
     border: 5px double rgb(255,255,255);
@@ -125,6 +159,23 @@ table{
     padding-top: 5px;
     padding-bottom: 5px;
     width: calc(100% - 50px - 50px);
+}
+
+table tr:nth-child(even){
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+table thead{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+table th{
+    text-align: center;
+}
+
+td img{
+    width: 40px;
+    height: 40px;
 }
 
 footer{
