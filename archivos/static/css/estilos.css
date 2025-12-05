@@ -129,6 +129,23 @@ section{
     border-radius: 25px;
 }
 
+form label{
+    border: 2px dotted black;
+    width: calc(100% - 50px);
+}
+
+form label #drag{
+    border: 2px dotted rgba(128, 128, 128, 0.397);
+    margin-top: 5px;
+    width: calc(100% - 50px);
+    height: 100px;
+    background-color: grey;
+}
+
+form label .drag{
+    background-color: rgb(197, 197, 197) !important;
+}
+
 label{
     display: block;
 }
@@ -137,7 +154,8 @@ label input{
     border-radius: 5px;
     background-color: rgba(15, 13, 128, 0.671);
     color: white;
-    width: 1000px;
+    width: 600px;
+    padding-left: 5px;
 }
 
 button{
@@ -151,7 +169,7 @@ button:hover{
 
 table{
     justify-content: center;
-    border: 5px double rgb(255,255,255);
+    border: 5px double rgb(0, 146, 85);
     margin-left: 50px;
     margin-right: 50px;
     margin-bottom: 10px;
@@ -159,6 +177,21 @@ table{
     padding-top: 5px;
     padding-bottom: 5px;
     width: calc(100% - 50px - 50px);
+}
+
+#documentos figure{
+    position: relative;
+}
+
+#documentos figcaption{
+    position: absolute;
+    line-height: 1.2;
+    top: 55px;
+    left: 25px;
+}
+
+table tr, th, td{
+    border: 2px solid rgb(0, 146, 85);
 }
 
 table tr:nth-child(even){
@@ -171,11 +204,17 @@ table thead{
 
 table th{
     text-align: center;
+    padding-top: 10px;
 }
 
-td img{
-    width: 40px;
-    height: 40px;
+table td{
+    text-align: center;
+    padding-top: 10px;
+}
+
+table td:first-child{
+    text-align: left;
+    background-color: white;
 }
 
 footer{
