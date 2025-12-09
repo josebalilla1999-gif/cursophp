@@ -3,6 +3,16 @@
     $recursos = "static/";
     $carpeta = "templates/";
     $mensaje = '';
+    if (isset($_GET['eliminar'])) {
+        $archivo = basename($_GET['eliminar']);   // seguridad
+        $ruta = $carpeta . $archivo;
+        if (file_exists($ruta)) {
+            unlink($ruta);
+            $mensaje = "Archivo '$archivo' eliminado correctamente.";
+        } else {
+            $mensaje = "El archivo no existe.";
+        }
+    }
     $extPermitidas = ['jpg' => '#9800beff', 
                         'png' => '#3f0037ff', 
                         'jpeg' => '#e270ffff', 
@@ -70,7 +80,7 @@
                     <td><?=date('d-m-Y H:i:s', filemtime($carpeta.$archivo)+3600);?></td>
                     <td><a href="<?=$carpeta.$archivo;?>"><span class="material-symbols-outlined" width="50px" height="50px">menu</span></a></td>
                     <td><a href="<?=$carpeta.$archivo;?>" download><span class="material-symbols-outlined" width="50px" height="50px">download</span></a></td>
-                    <td><a href="<?=$carpeta.$archivo;?>"><span class="material-symbols-outlined" width="50px" height="50px">delete</span></a></td>
+                    <td><a href="index.php?eliminar=<?= urlencode($archivo) ?>"><span class="material-symbols-outlined" width="50px" height="50px">delete</span></a></td>
                     </tr><?php
                 }
             ?>
