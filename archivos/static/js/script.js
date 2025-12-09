@@ -1,18 +1,26 @@
-const zona = document.getElementById("drag");
-zona.addEventListener("dragover", (e) => {
+const zona = document.getElementById("zona");
+const form = document.getElementById("form");
+const input = document.getElementById("archivo");
+
+zona.addEventListener("dragover", function (e) {
     e.preventDefault();
-    zona.classList.add('drag');
+    zona.classList.add("drag");
 });
-zona.addEventListener("dragleave", (e) => {
+
+zona.addEventListener("dragleave", function (e) {
+    e.preventDefault();
+    zona.classList.remove("drag");
+});
+
+zona.addEventListener("drop", function (e) {
     e.preventDefault();
     zona.classList.remove('drag');
-});
-zona.addEventListener("drop", (e) => {
-    e.preventDefault();
-    zona.classList.remove('drag');
-    alert('Ojo cuidao, acabas de soltar un archivo en la pagina');
-    let archivo = e.dataTransfer.files[0];
-    console.log(archivo.name);
-    let input = document.getElementById('drag');
-    input.setAttribute('value', archivo);
+
+    const archivo = e.dataTransfer.files[0];
+
+    const dt = new DataTransfer();
+    dt.items.add(archivo);
+    input.files = dt.files;
+
+    form.submit(); 
 });

@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="<?= $recursos?>css/reset.css">
     <link rel="stylesheet" href="<?= $recursos?>css/a11y-dark.min.css">
     <link rel="stylesheet" href="<?= $recursos?>css/estilos.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
@@ -53,7 +54,7 @@
                     <th colspan="2">Nombre del archivo</th>
                     <th>Tamaño</th>
                     <th>Ultima modificacion</th>
-                    <th>Descargar</th>
+                    <th colspan="3">Opciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -67,27 +68,20 @@
                     <td><?= $archivo; ?></td>
                     <td><?= @filesize($carpeta.$archivo)?> bytes</td>
                     <td><?=date('d-m-Y H:i:s', filemtime($carpeta.$archivo)+3600);?></td>
-                    <td><a href="<?=$carpeta.$archivo;?>" download>Descargar fichero</a></td>
+                    <td><a href="<?=$carpeta.$archivo;?>"><span class="material-symbols-outlined" width="50px" height="50px">menu</span></a></td>
+                    <td><a href="<?=$carpeta.$archivo;?>" download><span class="material-symbols-outlined" width="50px" height="50px">download</span></a></td>
+                    <td><a href="<?=$carpeta.$archivo;?>"><span class="material-symbols-outlined" width="50px" height="50px">delete</span></a></td>
                     </tr><?php
                 }
             ?>
             </tbody>
         </table>
         <section id="subida">
-            <form action="index.php" method="POST" enctype="multipart/form-data">
-                <label for="archivo">Selecciona un archivo: 
-                    <input type="file" id="archivo" name="archivo" accept="<?php
-                            foreach(array_keys($extPermitidas) as $ext){
-                                echo '.' . $ext . ',';
-                            }
-                        ?>">
-                </label>
-                <label for="drag">
-                    <input type="file" id="drag" name="drag" placeholder="Arrastra un archivo aqui" accept="<?php
-                            foreach(array_keys($extPermitidas) as $ext){
-                                echo '.' . $ext . ',';
-                            }
-                        ?>">
+            <form id="form" action="index.php" method="POST" enctype="multipart/form-data">
+                <label id="zona" title="Arrastra aquí un archivo para subir. O pulsa para buscar en tu disco.">Arrastra aquí un archivo para subir. O pulsa para buscar en tu disco.
+                    <input type="file" id="archivo" name="archivo" accept="<?php foreach (array_keys($extPermitidas) as $exte) {
+                                                                                echo "." . $exte . ",";
+                                                                            } ?>application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
                 </label>
                 <button>Subir archivo</button>
             </form>
