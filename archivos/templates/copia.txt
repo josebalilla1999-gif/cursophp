@@ -1,2 +1,0 @@
-Línea añadida con PHP
-Otra línea más.

@@ -3,16 +3,6 @@
     $recursos = "static/";
     $carpeta = "templates/";
     $mensaje = '';
-    if (isset($_GET['eliminar'])) {
-        $archivo = basename($_GET['eliminar']);   // seguridad
-        $ruta = $carpeta . $archivo;
-        if (file_exists($ruta)) {
-            unlink($ruta);
-            $mensaje = "Archivo '$archivo' eliminado correctamente.";
-        } else {
-            $mensaje = "El archivo no existe.";
-        }
-    }
     $extPermitidas = ['jpg' => '#9800beff', 
                         'png' => '#3f0037ff', 
                         'jpeg' => '#e270ffff', 
@@ -39,6 +29,14 @@
         }
     }
     $archivos = array_diff(scandir($carpeta), ['.','..']);
+    if(isset($_GET['nombrearchivo'])){
+        $nombrearchivo = urldecode($_GET['nombrearchivo']);
+        if(file_exists($carpeta.$nombrearchivo)){
+            unlink($carpeta.$nombrearchivo);
+            header('location:index.php');
+            $mensaje = 'El archivo ha sido borrado';
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -64,7 +62,7 @@
                     <th colspan="2">Nombre del archivo</th>
                     <th>Tamaño</th>
                     <th>Ultima modificacion</th>
-                    <th colspan="3">Opciones</th>
+                    <th>Opciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -78,9 +76,12 @@
                     <td><?= $archivo; ?></td>
                     <td><?= @filesize($carpeta.$archivo)?> bytes</td>
                     <td><?=date('d-m-Y H:i:s', filemtime($carpeta.$archivo)+3600);?></td>
-                    <td><a href="<?=$carpeta.$archivo;?>"><span class="material-symbols-outlined" width="50px" height="50px">menu</span></a></td>
-                    <td><a href="<?=$carpeta.$archivo;?>" download><span class="material-symbols-outlined" width="50px" height="50px">download</span></a></td>
-                    <td><a href="index.php?eliminar=<?= urlencode($archivo) ?>"><span class="material-symbols-outlined" width="50px" height="50px">delete</span></a></td>
+                    <td><span class="material-symbols-outlined btn" data-nombrearchivo="<?= $archivo; ?>" width="50px" height="50px">menu</span></a>
+                        <!-- <div id="lista" class="opciones">
+                            <a href="<?php //$carpeta.$archivo; ?>" download><span class="material-symbols-outlined" width="50px" height="50px">download</span>Descargar</a>
+                            <a href="index.php?eliminar=<?php //urlencode($archivo) ?>"><span class="material-symbols-outlined" width="50px" height="50px">delete</span>Eliminar</a>
+                        </div> -->
+                    </td>
                     </tr><?php
                 }
             ?>

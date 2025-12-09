@@ -144,6 +144,26 @@ label:has(input[type=file]){
     background-color: #e2ffd1 !important;
 }
 
+.id{
+    background-color: #e2ffd1 !important;
+}
+
+#btn:hover + .opciones{
+    display:flex;
+    flex-direction: column;
+}
+
+.opciones{
+    top: 40px;
+    right: 0px;
+    display: none;
+    background-color: #ebebeb;
+}
+
+.opciones a{
+    text-decoration: none;
+}
+
 button{
     width:50%;margin:1rem auto;padding:1rem 0;
     display:block;
