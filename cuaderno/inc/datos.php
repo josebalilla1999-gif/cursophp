@@ -41,6 +41,12 @@ $tematicas = [
         "menu" => "Archivos",
         "slug" => "archivos",
         "descripcion" => "La gestión de archivos en PHP es una de esas partes del lenguaje que parecen sencillas, pero que esconden mucha potencia. En esencia, PHP nos permite crear, leer, modificar, mover y borrar archivos y directorios directamente desde nuestros scripts. Con esto podemos desde guardar logs hasta gestionar uploads, montar sistemas de plantillas simples o incluso generar archivos para descargar."
+    ],
+    "sesiones" => [
+        "titulo" => "Sesiones en PHP",
+        "menu" => "Sesiones",
+        "slug" => "sesiones",
+        "descripcion" => " Las sesiones en PHP son un mecanismo que nos permite almacenar información del usuario en el servidor durante su interacción con una aplicación web. A diferencia de las cookies, donde los datos se almacenan en el navegador, en una sesión los datos se mantienen en el servidor y el navegador solo guarda un identificador (ID de sesión). Podemos usarlas para saber si un usuario inició sesión, gestionar un carrito de compras o guardar información temporal entre páginas sin pasar datos por la URL."
     ]
 ];
 ?>
