@@ -16,8 +16,14 @@ function mostrarElementos(){
         div.style.backgroundColor = "rgb(255,255,255)";
         const a = document.createElement("a");
         a.innerHTML = "<span class=material-symbols-outlined btn>delete</span>Eliminar";
-        a.setAttribute("href", "index.php?nombrearchivo=" + encodeURI(this.dataset.nombrearchivo));+
+        a.setAttribute("href", "index.php?nombrearchivo=" + encodeURI(this.dataset.nombrearchivo));
         div.append(a);
+        const b = document.createElement("a");
+        b.innerHTML = "<span class=material-symbols-outlined btn>download</span>Descargar";
+        b.setAttribute("href", "templates/" + encodeURI(this.dataset.nombrearchivo));
+        b.setAttribute("target", "_blank");
+        b.setAttribute("download", encodeURI(this.dataset.nombrearchivo));
+        div.append(b);
         this.parentElement.append(div);
     }else{
         document.getElementById("opciones").remove();

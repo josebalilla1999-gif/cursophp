@@ -73,7 +73,7 @@
                 ?>
                     <tr>
                     <td><figure><img src="static/img/file.svg" alt="Extension del tipo<?= $ext; ?>"><figcaption style="color: <?= $color; ?>"><?= $ext;?></figure></td>
-                    <td><?= $archivo; ?></td>
+                    <td><a style="text-decoration: none;" href="templates/<?= $archivo; ?>"><?= $archivo; ?></a></td>
                     <td><?= @filesize($carpeta.$archivo)?> bytes</td>
                     <td><?=date('d-m-Y H:i:s', filemtime($carpeta.$archivo)+3600);?></td>
                     <td><span class="material-symbols-outlined btn" data-nombrearchivo="<?= $archivo; ?>" width="50px" height="50px">menu</span></a>

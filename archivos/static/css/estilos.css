@@ -154,9 +154,8 @@ label:has(input[type=file]){
 }
 
 .opciones{
-    top: 40px;
-    right: 0px;
-    display: none;
+    position:absolute;top:30px;right:0;z-index:2;
+    width:240px;
     background-color: #ebebeb;
 }
 
@@ -222,6 +221,7 @@ table th{
 table td{
     text-align: center;
     padding-top: 10px;
+    position: relative;
 }
 
 table td:first-child{
