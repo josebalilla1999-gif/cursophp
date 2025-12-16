@@ -58,13 +58,18 @@ $archivos = array_diff(scandir($carpeta), ['.', '..']);
                 <span class="extension" style="background-color:<?= $color ?>"><?= $ext ?></span> 
                 <span class="nombre"><?= htmlspecialchars($archivo) ?></span>
             </figcaption> 
-
+        <!-- <ul class="datos_archivo">
+            <li>Fecha de modificacion: <?= date('d-m-Y H:i:s', @filemtime($carpeta.$archivo)+3600) ?></li>
+            <li>Tamaño: <?= @filesize($carpeta.$archivo) ?></li>
+        </ul> -->
         </figure>
-
-       
-
-       
-
+        <div class="datos_archivo">
+            <span class="cerrar">X</span>
+            <table>
+            <tr><th>Fecha: <?= date('d-m-Y H:i:s', @filemtime($carpeta.$archivo)+3600) ?></th></tr>
+            <tr><th>Tamaño: <?= @filesize($carpeta.$archivo) ?> bytes</th></tr>
+            </table>
+        </div>
 <?php endforeach; ?>
 </section>
 

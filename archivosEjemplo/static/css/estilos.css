@@ -14,6 +14,11 @@ main{
   padding:calc(var(--uniW) * 3);
 }
 
+footer{
+  padding:calc(var(--uniW) * 3);
+  width: calc(100vw - 100px);
+}
+
 body.login {
   min-height: 100vh;
   display: flex;
@@ -79,15 +84,15 @@ body.login main form label {
   position: relative;
   text-align: center;
   cursor: pointer;
-  transition: all 0.3s ease;
 }
 
-.archivo:hover {
-  transform: scale(103%);
+.archivo img:hover {
+  transform: scale(110%);
 }
 
 .archivo img {
   width: 100%;
+  transition: all 0.3s ease;
 }
 
 .archivo figcaption span.extension {
@@ -109,9 +114,25 @@ body.login main form label {
   word-break: normal;
 }
 
+div.datos_archivo{
+  position: absolute;
+  z-index: 100;
+  background-color: rgb(143, 255, 255);
+  font-size: calc(var(--uni) * 0.6);
+  box-shadow: 8px 10px 8px -1px rgb(25, 171, 255);
+  display: none;
+  width: auto;
+  height: auto;
+}
 
+div.datos_archivo.visible{
+  position: relative;
+  display: block;
+}
 
-
+div.cerrar{
+  cursor:pointer;
+}
 
 .mensaje {
   margin-top: 1rem;

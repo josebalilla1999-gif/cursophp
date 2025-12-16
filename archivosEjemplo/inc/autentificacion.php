@@ -1,8 +1,8 @@
 <?php
 class autentificar
 {
-    private $usuarioValido = 'admin';
-    private $contrasenaValida = '1234';
+    private $usuarioValido = 'hellothere';
+    private $contrasenaValida = 'generalkenobi';
 
     public function __construct()
     {

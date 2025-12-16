@@ -1,14 +1,45 @@
 <?php
 class App
 {
-    private $usuarioValido = 'admin';
-    private $contrasenaValida = '1234';
+    private $usuarioValido = 'hellothere';
+    private $contrasenaValida = 'generalkenobi';
 
     public function __construct()
     {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
+    }
+
+    public function pintarCabecera(string $titulo, string $clase){
+        ?>
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title><?= $titulo?></title>
+            <link href="static/css/reset.css" rel="stylesheet">
+            <link href="static/css/estilos.css" rel="stylesheet">
+        </head>
+        <body class="<?= $clase; ?>">
+            <header>
+                <h1><?php ?></h1>
+            </header>
+            <main>
+        <?php
+    }
+
+    public function pintarPie(){
+        ?>    
+        </main>
+        <footer>
+            <p id="mensaje" class="error">Si estas leyendo este mensaje me debes 50€</p>
+        </footer>
+        <script src="static/js/code.js"></script>
+        </body>
+        </html>
+    <?php
     }
 
 
