@@ -53,7 +53,7 @@
     <h2>Acceso al sistema</h2>
 
     <!--<form id="form-login" action="procesar.php" method="POST">-->
-    <form id="form-login" action="index.php" method="POST">
+    <form id="form-login" action="login.php" method="POST">
         <label>
             Usuario:
             <input type="text" name="usuario" id="usuario">
