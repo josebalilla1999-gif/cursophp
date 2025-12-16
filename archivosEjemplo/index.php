@@ -1,3 +1,11 @@
+<?php
+require_once 'inc/App.php';
+$aut = new App();
+$clase_css = 'login';
+if ($aut->esta_logueado()) {
+    $clase_css = 'archivo';
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -5,15 +13,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php ?></title>
+    <link href="static/css/reset.css" rel="stylesheet">
+    <link href="static/css/estilos.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="<?php echo $clase_css; ?>">
     <header>
         <h1><?php ?></h1>
     </header>
     <main><?php
-            require_once 'inc/autentificacion.php';
-            $aut = new autentificar();
+
 
             $mensaje = "";
 
@@ -22,14 +31,12 @@
                 $contrasena  = trim($_POST['contrasena'] ?? '');
                 if ($aut->login($usuario, $contrasena)) {
                     include 'inc/archivos.php';
-                }else{
-                include 'inc/form.php';
+                } else {
+                    include 'inc/form.php';
                 }
-            } 
-            else{
+            } else {
                 include 'inc/form.php';
-            
-        }
+            }
 
 
 

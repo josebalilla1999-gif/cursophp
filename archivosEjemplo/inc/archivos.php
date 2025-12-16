@@ -1,38 +1,73 @@
 <?php
 $carpeta = 'uploads/';
 $mensaje = '';
+
 $extPermitidas = [
-    'jpg' => '#bf10b9',
+    'jpg'  => '#bf10b9',
     'jpeg' => '#bf10b9',
-    'png' => '#79e3f3ff',
-    'doc' => '#4f34fe',
-    'zip' => '#ffeeb4',
-    'xls' => '#28ff3d'
+    'png'  => '#79e3f3',
+    'doc'  => '#4f34fe',
+    'zip'  => '#ffeeb4',
+    'xls'  => '#28ff3d',
+    'pdf'  => '#ff6b6b'
 ];
+
+
 if (!is_dir($carpeta)) {
     mkdir($carpeta, 0755, true);
-    $mensaje = "Se ha creado un direcorio.";
-    /* exit("El directorio no existe."); */
 }
-$archivos = array_diff(scandir($carpeta), ['.', '..']);
 
-if (isset($_GET['nombrearchivo'])) {
-    $nombrearchivo = urldecode($_GET['nombrearchivo']);
-    if (file_exists($carpeta . $nombrearchivo)) {
-        unlink($carpeta . $nombrearchivo);
-        /*         header('location:index.php'); */
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
+
+    $nombre = basename($_FILES['archivo']['name']);
+    $tmp = $_FILES['archivo']['tmp_name'];
+    $ext = strtolower(pathinfo($nombre, PATHINFO_EXTENSION));
+
+    if (!array_key_exists($ext, $extPermitidas)) {
+        $mensaje = "Tipo de archivo no permitido";
+    } else {
+        move_uploaded_file($tmp, $carpeta . $nombre);
+        $mensaje = "Archivo subido correctamente";
     }
 }
-foreach ($archivos as $archivo) {
-    $ext = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
-    $color = $extPermitidas[$ext];
-}
+
+
+
+
+$archivos = array_diff(scandir($carpeta), ['.', '..']);
 ?>
 
-<h2>Archivos</h2>
-<section>
-    <figure>
-        <img class="file" src="<?= $recursos ?>img/file.svg" alt="Extensión del tipo <?= $ext;  ?>">
-        <figcaption style="background-color:<?= $color;  ?>"><?= $ext;  ?></figcaption>
-    </figure>
+<h2>Explorador de archivos</h2>
+
+<form class="subida" method="POST" enctype="multipart/form-data">
+    <input type="file" name="archivo" required>
+    <button type="submit">Subir</button>
+</form>
+
+<section class="explorador">
+<?php foreach ($archivos as $archivo): ?>
+    <?php
+        $ext = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
+        $color = $extPermitidas[$ext] ?? '#ccc';
+    ?>
+
+        <figure class="archivo">
+            <img src="static/img/file.svg" alt="<?= $ext ?>">
+            <figcaption >
+                <span class="extension" style="background-color:<?= $color ?>"><?= $ext ?></span> 
+                <span class="nombre"><?= htmlspecialchars($archivo) ?></span>
+            </figcaption> 
+
+        </figure>
+
+       
+
+       
+
+<?php endforeach; ?>
 </section>
+
+<?php if ($mensaje): ?>
+    <p class="mensaje"><?= $mensaje ?></p>
+<?php endif; ?>
