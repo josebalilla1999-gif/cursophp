@@ -20,7 +20,7 @@
     </strong>
 
     <h3 style="text-align: center; font-size: 2rem;">Comprobar si existe una sesión</h3>
-    <p>Podemos comprobar si el usuario inició sesión verificando valores en <code>$_SESSION</code>.</p>
+    <p>Podemos comprobar si el usuario inició sesión verificando valores en <code>$_SESSION</code></p>
 
     <pre><code class="language-php">
     session_start();
@@ -61,7 +61,7 @@
     </strong>
 
     <h3 style="text-align: center; font-size: 2rem;">Eliminar un valor de sesión</h3>
-    <p>Podemos borrar una clave concreta con <code>unset()</code>.</p>
+    <p>Podemos borrar una clave concreta con <code>unset()</code></p>
 
     <pre><code class="language-php">
     session_start();
@@ -78,7 +78,7 @@
     </strong>
 
     <h3 style="text-align: center; font-size: 2rem;">Cerrar sesión completamente</h3>
-    <p>Para destruir toda la sesión usamos <code>session_unset()</code> y <code>session_destroy()</code>.</p>
+    <p>Para destruir toda la sesión usamos <code>session_unset()</code> y <code>session_destroy()</code></p>
 
     <pre><code class="language-php">
     session_start();
