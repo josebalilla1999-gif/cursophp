@@ -15,6 +15,11 @@ main {
   padding: calc(var(--uniW) * 3)
 }
 
+h1{
+  text-align: center;
+  padding: 50px;
+}
+
 body.login {
   min-height: 100vh;
   display: flex;
@@ -90,9 +95,6 @@ body.login main form label {
 .archivo img {
   width: 100%
 }
-
-
-.archivo figcaption {}
 
 .archivo figcaption span.extension {
   position: absolute;
