@@ -6,9 +6,21 @@ class Mitema
     {
         
     }
+
+    public function __escribirJS(){
+?>
+    <!-- <script src="static/js/code.js"></script> -->
+    <script>
+        var enlace = document.createElement('link');
+        enlace.setAttribute('rel', 'stylesheet');
+        enlace.setAttribute('href', 'static/css/dark.css');
+        document.head.append(enlace);
+    </script>
+<?php
+    }
 }
 ?>
-        <!DOCTYPE html>
+        <!-- <!DOCTYPE html>
         <html lang="es">
 
         <head>
@@ -32,4 +44,4 @@ class Mitema
             <script src="static/js/popup.js"></script>
         </body>
 
-        </html>
+        </html> -->

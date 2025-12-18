@@ -20,7 +20,7 @@
     <?php 
     if($nombre){
     ?>
-    <h1>Hola <?=$nombre?>, ¿has oído hablar de la iniciativa Vengador?</h1>
+    <h1>Me llena de orgullo y satisfaccion que en estas fechas tan señaladas, podamos reclamar a <?=$nombre?> como nuevo rey de nuestro pais Españita</h1>
     <a href="borrar.php">Borrar nombre</a>
     <?php
     }else{

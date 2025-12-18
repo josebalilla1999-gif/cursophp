@@ -10,3 +10,10 @@ body {
   font-size: var(--uni);
   background: #f7f7f7;
 }
+
+label{
+  background-color: black;
+  color: white;
+  font-size: 14px;
+  padding: 10px;
+}
