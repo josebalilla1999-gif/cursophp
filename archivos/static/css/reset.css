@@ -1,6 +1,6 @@
 /* =Reset
 -------------------------------------------------------------- */
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -47,15 +47,13 @@ ol, ul {
 table { /* tables still need 'cellspacing="0"' in the markup */
 	border-collapse: collapse;
 	border-spacing: 0;
-	margin: 0 0 1.5em;
 	width: 100%;
 }
 th {
    font-weight: bold;
 }
 th, td {
-   border: 1px solid #EAEAEA;
-   padding: 6px 10px;
+
 }
 caption, th, td {
 	text-align: left;

@@ -1,4 +1,4 @@
-const archivos = document.getElementsByClassName('explorador')[0].getElementsByClassName('archivo');
+const archivos = document.getElementsByClassName('archivo');
 console.log(archivos);
 for(let archivo of archivos){
     archivo.addEventListener('click', function(event) {
