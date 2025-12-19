@@ -1,11 +1,14 @@
 <?php
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
 require_once 'inc/mitema.php';
 $app = new Mitema();
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $color = $_POST['colores'];
     header('location: index.php');
 }
-
+$archivos = $app->mostrarCSS();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -15,6 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <title>Elegir tema</title>
 </head>
 <body>
+    <p>Si se lee el texto me debes una Nintendo Switch</p>
     <!-- <form action="index.php" method="POST">
         <label for="coloresfondo">Cambio de color de fondo:
         <select name="coloresfondo" id="coloresfondo">

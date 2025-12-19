@@ -53,6 +53,12 @@ $tematicas = [
         "menu" => "Cookies",
         "slug" => "cookies",
         "descripcion" => " Las sesiones en PHP son un mecanismo que nos permite almacenar información del usuario en el servidor durante su interacción con una aplicación web. A diferencia de las cookies, donde los datos se almacenan en el navegador, en una sesión los datos se mantienen en el servidor y el navegador solo guarda un identificador (ID de sesión). Podemos usarlas para saber si un usuario inició sesión, gestionar un carrito de compras o guardar información temporal entre páginas sin pasar datos por la URL."
+    ],
+    "clases" => [
+        "titulo" => "Clases en PHP",
+        "menu" => "Clases",
+        "slug" => "clases",
+        "descripcion" => "Las clases en PHP son la base de la Programación Orientada a Objetos. Nos permiten agrupar datos (propiedades) y comportamientos (métodos) dentro de una misma estructura, facilitando la organización, reutilización y mantenimiento del código. Mediante el uso de clases y objetos podemos modelar entidades del mundo real, aplicar encapsulamiento, trabajar con herencia y construir aplicaciones más claras, escalables y profesionales."
     ]
 ];
 ?>

@@ -4,7 +4,7 @@
     <p>
         Cuando queremos trabajar con un archivo, primero debemos asegurarnos de que está ahí… como cuando vamos a por el
         tupper al frigorífico y esperamos que no se lo haya comido alguien. Podemos hacerlo con
-        <code>file_exists()</code> e incluso afinar usando <code>is_file()</code>.
+        <code>file_exists()</code> e incluso afinar usando <code>is_file()</code>
     </p>
 
     <pre>
@@ -32,7 +32,7 @@
     <h3 style="text-align: center; font-size: 2rem;">Comprobar si es archivo o directorio</h3>
     <p>
         A veces necesitamos saber si tenemos un archivo o una carpeta. Podemos comprobarlo con <code>is_file()</code> e
-        <code>is_dir()</code>.
+        <code>is_dir()</code>
     </p>
 
     <pre>
@@ -124,7 +124,7 @@
 
     <h3 style="text-align: center; font-size: 2rem;">Añadir contenido a un archivo</h3>
     <p>
-        Si no queremos borrar lo que ya tenía, podemos concatenar contenido usando <code>FILE_APPEND</code>.
+        Si no queremos borrar lo que ya tenía, podemos concatenar contenido usando <code>FILE_APPEND</code>
     </p>
 
     <pre>
@@ -143,7 +143,7 @@
 
     <h3 style="text-align: center; font-size: 2rem;">Borrar archivos</h3>
     <p>
-        Cuando ya no necesitamos un archivo podemos eliminarlo con <code>unlink()</code>.
+        Cuando ya no necesitamos un archivo podemos eliminarlo con <code>unlink()</code>
     </p>
 
     <pre>
@@ -166,7 +166,7 @@
 
     <h3 style="text-align: center; font-size: 2rem;">Crear y borrar directorios</h3>
     <p>
-        Para crear carpetas usamos <code>mkdir()</code> y para eliminarlas <code>rmdir()</code>.
+        Para crear carpetas usamos <code>mkdir()</code> y para eliminarlas <code>rmdir()</code>
     </p>
 
     <pre>
@@ -186,7 +186,7 @@
 
     <h3 style="text-align: center; font-size: 2rem;">Listar archivos de un directorio</h3>
     <p>
-        Para ver qué tenemos en una carpeta podemos usar <code>scandir()</code>.
+        Para ver qué tenemos en una carpeta podemos usar <code>scandir()</code>
     </p>
 
     <pre>
@@ -210,7 +210,7 @@
 
     <h3 style="text-align: center; font-size: 2rem;">Mover o renombrar archivos</h3>
     <p>
-        PHP nos permite reubicar archivos con <code>rename()</code>.
+        PHP nos permite reubicar archivos con <code>rename()</code>
     </p>
 
     <pre>
@@ -228,7 +228,7 @@
 
     <h3 style="text-align: center; font-size: 2rem;">Copiar archivos</h3>
     <p>
-        Si queremos duplicar un archivo usamos <code>copy()</code>.
+        Si queremos duplicar un archivo usamos <code>copy()</code>
     </p>
 
     <pre>
@@ -246,7 +246,7 @@
 
     <h3 style="text-align: center; font-size: 2rem;">Permisos de archivo</h3>
     <p>
-        Podemos cambiar los permisos de un archivo usando <code>chmod()</code>.
+        Podemos cambiar los permisos de un archivo usando <code>chmod()</code>
     </p>
 
     <pre>
@@ -264,7 +264,7 @@
 
     <h3 style="text-align: center; font-size: 2rem;">Obtener la ruta absoluta</h3>
     <p>
-        Para saber dónde está realmente un archivo podemos usar <code>realpath()</code>.
+        Para saber dónde está realmente un archivo podemos usar <code>realpath()</code>
     </p>
 
     <pre>

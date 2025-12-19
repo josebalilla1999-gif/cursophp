@@ -1,10 +1,34 @@
 <?php
 class Mitema
 {
+    private string $carpeta = 'static/css/temas/';
 
-    public function __construct()
-    {
+    public function __construct(){
         
+    }
+
+    public function getCookie():string{
+        $tema = $_COOKIE['$tema'] ?? null;
+        if(!$tema){
+            $estilo = 'static/css/temas/default.css';
+        }
+        return $estilo;
+    }
+
+    public function escribirMenu(){
+
+    }
+
+    public function mostrarCSS():array{
+        $hojas = [];
+        if(is_dir($this->carpeta)){
+            foreach(scandir($this->carpeta) as $archivo){
+                if(pathinfo($archivo, PATHINFO_EXTENSION) === 'css'){
+                    array_push( $hojas, $archivo);
+                }
+            }
+        }
+        return $hojas;
     }
 
     public function __escribirJS(){
@@ -12,9 +36,25 @@ class Mitema
     <!-- <script src="static/js/code.js"></script> -->
     <script>
         var enlace = document.createElement('link');
-        enlace.setAttribute('rel', 'stylesheet');
-        enlace.setAttribute('href', 'static/css/dark.css');
+        enlace.rel = 'stylesheet';
+        enlace.href = '<?= $this->getCookie(); ?>';
         document.head.append(enlace);
+        let selector = document.createElement('select');
+        selector.setAttribute('id', 'temas');
+        <?php
+            foreach($this->mostrarCSS() as $valor){
+        ?>
+            var opcion = document.createElement('option');
+            opcion.value = '<?= $valor; ?>';
+            opcion.innerText = '<?= $valor; ?>';
+            selector.append(opcion);
+        <?php
+            }
+        ?>
+        document.body.prepend(selector);
+        selector.addEventListener('change', () => {
+            enlace.href = '<?= $this->carpeta; ?>' + selector.value;
+        })
     </script>
 <?php
     }
