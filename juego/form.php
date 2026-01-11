@@ -31,19 +31,19 @@
 <body>
     <form id="formulario" action="registro.php" method="POST">
         <label for="nombre">Nombre:
-            <input type="text" id="nombre" name="nombre" placeholder="Introduce tu nombre">
+            <input type="text" id="nombre" name="nombre" placeholder="Introduce tu nombre" required>
         </label><br>
         <label for="apellidos">Apellidos:
-            <input type="text" id="apellidos" name="apellidos" placeholder="Introduce tu apellido o tus apellidos">
+            <input type="text" id="apellidos" name="apellidos" placeholder="Introduce tu apellido o tus apellidos" required>
         </label><br>
         <label for="email">Email:
-            <input type="email" id="email" name="email" placeholder="Introduce tu correo electronico">
+            <input type="email" id="email" name="email" placeholder="Introduce tu correo electronico" required>
         </label><br>
         <label for="contrasena">Contrasena:
-            <input type="password" id="contrasena" name="contrasena" placeholder="Introduce tu contrasena">
+            <input type="password" id="contrasena" name="contrasena" placeholder="Introduce tu contrasena" required>
         </label><br>
         <label for="terminos">
-            <input type="checkbox" id="terminos" name="terminos">Acepta los terminos y condiciones
+            <input type="checkbox" id="terminos" name="terminos" required>Acepta los terminos y condiciones
         </label><br>
         <input type="submit" value="Enviar datos">
     </form>

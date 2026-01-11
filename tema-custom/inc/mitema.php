@@ -46,7 +46,7 @@ class Mitema
         ?>
             var opcion = document.createElement('option');
             opcion.value = '<?= $valor; ?>';
-            opcion.innerText = '<?= $valor; ?>';
+            opcion.innerText = '<?= $valor ?>';
             selector.append(opcion);
         <?php
             }
