@@ -4,10 +4,6 @@ SET NAMES utf8;
 SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
 
-DROP DATABASE IF EXISTS `usuario`;
-CREATE DATABASE `usuario` /*!40100 DEFAULT CHARACTER SET utf32 COLLATE utf32_unicode_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `usuario`;
-
 DROP TABLE IF EXISTS `administradores`;
 CREATE TABLE `administradores` (
   `id` bigint NOT NULL AUTO_INCREMENT,
