@@ -17,7 +17,7 @@ $contentContrasena->execute();
 $credencialesEmail=$contentEmail->fetchAll(PDO::FETCH_COLUMN);
 $credencialesContrasena=$contentContrasena->fetchAll(PDO::FETCH_COLUMN);
 $credencialesContrasenaTrue = password_verify($contrasena, $credencialesContrasena[0]);
-if($credencialesEmail == null || !$credencialesContrasena){
+if($credencialesEmail == null || !$credencialesContrasenaTrue){
     header('location: loginJugador.php?error=login');
 }else if ($captcha != $respuestacaptcha) {
     header('location:loginJugador.php?error=captcha');
