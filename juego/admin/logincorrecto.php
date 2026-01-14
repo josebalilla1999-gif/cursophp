@@ -23,6 +23,6 @@ if($credencialesEmail == null || !$credencialesContrasenaTrue){
 }else if ($captcha != $respuestacaptcha || $captcha2 != $respuestacaptcha2) {
     header('location:loginAdmin.php?error=captcha');
 }else{
-    echo "Login correcto. Bienvenido<br><a href='loginAdmin.php'>Volver al login</a>";
+    echo "Login correcto. Bienvenido y que nuestro dios te bendiga<br><a href='loginAdmin.php'>Volver al login</a>";
 }
 ?>
