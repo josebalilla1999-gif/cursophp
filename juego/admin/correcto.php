@@ -2,24 +2,32 @@
 
 require '../connddbb.php';
 
-$nombre     = $_POST['nombre'];
-$apellidos  = $_POST['apellidos'];
-$email      = $_POST['email'];
-$contrasena = password_hash($_POST['contrasena'], PASSWORD_DEFAULT);
-$rol        = $_POST['rol'];
+$nombre = $_POST['nombre'];
+$apellidos = $_POST['apellidos'];
+$email = $_POST['email'];
+$contrasena = password_hash($_POST['contrasena'], CRYPT_SHA256);
+$rol = $_POST['rol'];
 
-$sql = "INSERT INTO administradores 
+$correoComprobar = "SELECT email FROM administradores WHERE email = '$email'";
+$contentCorreo = $conexion->prepare($correoComprobar);
+$contentCorreo->execute();
+$correo = $contentCorreo->fetchAll(PDO::FETCH_COLUMN);
+if ($correo!=null) {
+    header('location:formAdmin.php?error=correo');
+}else{
+    $sql = "INSERT INTO administradores 
         (nombre, apellidos, email, contrasena, rol)
         VALUES (:nombre, :apellidos, :email, :contrasena, :rol)";
-
-$stmt = $conexion->prepare($sql);
-$stmt->execute([
-    ':nombre'     => $nombre,
-    ':apellidos'  => $apellidos,
-    ':email'      => $email,
-    ':contrasena' => $contrasena,
-    ':rol'        => $rol
-]);
+    $stmt = $conexion->prepare($sql);
+    $stmt->execute([
+        ':nombre' => $nombre,
+        ':apellidos' => $apellidos,
+        ':email' => $email,
+        ':contrasena' => $contrasena,
+        ':rol' => $rol
+    ]);
+    header('location: loginAdmin.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">

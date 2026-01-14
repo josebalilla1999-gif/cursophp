@@ -33,11 +33,11 @@ $resultado = $cantidad1 + $cantidad2;
     <form id="formulario" action="logincorrecto.php" method="POST">
 
         <label>Email:
-            <input type="email" name="email" required>
+            <input type="email" id="email" name="email" required>
         </label><br>
 
         <label>Contraseña:
-            <input type="password" name="contrasena" required>
+            <input type="password" id="contrasena" name="contrasena" required>
         </label><br>
 
         <p>¿Cuánto es <?= $cantidad1 ?> + <?= $cantidad2 ?>?

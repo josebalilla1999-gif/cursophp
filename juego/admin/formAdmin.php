@@ -52,5 +52,8 @@
         </label><br>
         <input type="submit" value="Enviar datos">
     </form>
+    <?php if (isset($_GET['error']) && $_GET['error'] === 'correo'): ?>
+        <p style="color:red;">❌ Correo fallido. Inténtalo de nuevo.</p>
+    <?php endif; ?>
 </body>
 </html>
