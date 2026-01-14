@@ -49,7 +49,12 @@ $resultado = $cantidad1 + $cantidad2;
         <input type="submit" value="Enviar">
 
     </form>
-
+    <?php if (isset($_GET['error']) && $_GET['error'] === 'login'): ?>
+        <p style="color:red;">❌ Login fallido. Inténtalo de nuevo.</p>
+    <?php endif; ?>
+    <?php if (isset($_GET['error']) && $_GET['error'] === 'captcha'): ?>
+        <p style="color:red;">❌ Captcha fallido. Inténtalo de nuevo.</p>
+    <?php endif; ?>
 </body>
 
 </html>

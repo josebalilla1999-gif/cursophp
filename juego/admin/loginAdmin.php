@@ -34,11 +34,11 @@ $dios = "Axel Blaze";
     <form id="formulario" action="logincorrecto.php" method="POST">
 
         <label>Email:
-            <input type="email" name="email" required>
+            <input type="email" id="email" name="email" required>
         </label><br>
 
         <label>Contraseña:
-            <input type="password" name="contrasena" required>
+            <input type="password" id="contrasena" name="contrasena" required>
         </label><br>
 
         <p>¿Cuánto es <?= $cantidad1 ?> + <?= $cantidad2 ?>?
@@ -54,7 +54,12 @@ $dios = "Axel Blaze";
         <input type="submit" value="Enviar">
 
     </form>
-
+    <?php if (isset($_GET['error']) && $_GET['error'] === 'login'): ?>
+        <p style="color:red;">❌ Login fallido. No hagas enfadar a los de arriba.</p>
+    <?php endif; ?>
+    <?php if (isset($_GET['error']) && $_GET['error'] === 'captcha'): ?>
+        <p style="color:red;">❌ Captcha incorrecto, nuestro dios venerado y admirado te esta vigilando.</p>
+    <?php endif; ?>
 </body>
 
 </html>
