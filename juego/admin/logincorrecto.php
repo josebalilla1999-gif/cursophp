@@ -18,7 +18,7 @@ $contentContrasena->execute();
 $credencialesEmail=$contentEmail->fetchAll(PDO::FETCH_COLUMN);
 $credencialesContrasena=$contentContrasena->fetchAll(PDO::FETCH_COLUMN);
 $credencialesContrasenaTrue = password_verify($contrasena, $credencialesContrasena[0]);
-if($credencialesEmail == null || !$credencialesContrasena){
+if($credencialesEmail == null || !$credencialesContrasenaTrue){
     header('location:loginAdmin.php?error=login');
 }else if ($captcha != $respuestacaptcha || $captcha2 != $respuestacaptcha2) {
     header('location:loginAdmin.php?error=captcha');
