@@ -55,6 +55,9 @@ $resultado = $cantidad1 + $cantidad2;
     <?php if (isset($_GET['error']) && $_GET['error'] === 'captcha'): ?>
         <p style="color:red;">❌ Captcha fallido. Inténtalo de nuevo.</p>
     <?php endif; ?>
+    <?php if (isset($_GET['error']) && $_GET['error'] === 'baneaditto'): ?>
+        <p style="color:red;">❌ Este jugador esta baneado</p>
+    <?php endif; ?>
 </body>
 
 </html>
