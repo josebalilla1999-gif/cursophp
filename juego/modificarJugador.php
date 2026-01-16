@@ -28,6 +28,9 @@ if ($desbanear == 'si') {
 if ($banear == 'si') {
     $baneado = 1;
 }
+if ($banear == 'si' && ($fechafinban == null || strtotime($fechafinban) < time())) {
+    $baneado = 0;
+}
 $sql = "
 UPDATE usuarios SET
     nombre = :nombre,
