@@ -3,7 +3,7 @@
 require 'connddbb.php';
 ini_set('display_errors', 1);
 
-$sql = "SELECT id, nick, nombre, apellidos, email, fechanacimiento, baneado, fechafinban FROM usuarios";
+$sql = "SELECT id, nick, nombre, apellidos, email, fechanacimiento, baneado, fechafinban, fechabaja FROM usuarios";
 $usuarios = $conexion->prepare($sql);
 $usuarios->execute();
 $datos = $usuarios->fetchAll(PDO::FETCH_ASSOC);
@@ -40,6 +40,7 @@ $datos = $usuarios->fetchAll(PDO::FETCH_ASSOC);
                 <th>Fecha de nacimiento</th>
                 <th>Baneado</th>
                 <th>Fecha fin baneo</th>
+                <th>Fecha de baja</th>
             </tr>
         </thead>
         <tbody>
@@ -53,16 +54,21 @@ $datos = $usuarios->fetchAll(PDO::FETCH_ASSOC);
                 <td><?= $dato['email'] ?></td>
                 <td><?= date("d/m/Y", $dato['fechanacimiento']) ?></td>
                 <?php if($dato['baneado'] == 0):?>
-                    <td colspan="2"><?= $dato['baneado'] ?></td>
+                    <td colspan="2">No</td>
                 <?php endif;?>
                 <?php if($dato['baneado'] == 1):?>
-                    <td><?= $dato['baneado'] ?></td>
+                    <td>Si</td>
                     <td><?= date("d/m/Y", $dato['fechafinban']) ?></td>
+                <?php endif;?>
+                <?php if($dato['fechabaja'] != null):?>
+                    <td><?= date("d/m/Y", timestamp: $dato['fechabaja']) ?></td>
+                <?php endif;?>
+                <?php if($dato['fechabaja'] == null):?>
+                    <td>Esta de alta</td>
                 <?php endif;?>
             </tr>
             <?php } ?>
         </tbody>
     </table>
 </body>
-</html>
 </html>
