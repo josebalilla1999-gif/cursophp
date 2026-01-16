@@ -58,6 +58,9 @@ $resultado = $cantidad1 + $cantidad2;
     <?php if (isset($_GET['error']) && $_GET['error'] === 'baneaditto'): ?>
         <p style="color:red;">❌ Este jugador esta baneado</p>
     <?php endif; ?>
+    <?php if (isset($_GET['error']) && $_GET['error'] === 'intentos'): ?>
+        <p style="color:red;">❌ Muchos intentos fallidos</p>
+    <?php endif; ?>
 </body>
 
 </html>

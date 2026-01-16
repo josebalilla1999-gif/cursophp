@@ -11,40 +11,70 @@ $respuestacaptcha = $_POST['resultado_correcto'];
 $comprobarEmail = "SELECT email FROM usuarios WHERE email = '$email'";
 $comprobarContrasena = "SELECT contrasena FROM usuarios WHERE email = '$email'";
 $comprobarBaneo = "SELECT baneado FROM usuarios WHERE email = '$email'";
+$comprobarIntentos = "SELECT numerointentosfallidos FROM usuarios WHERE email = '$email'";
 
 $contentEmail = $conexion->prepare($comprobarEmail);
 $contentContrasena = $conexion->prepare($comprobarContrasena);
 $contentBan = $conexion->prepare($comprobarBaneo);
+$contentIntentos = $conexion->prepare($comprobarIntentos);
 
 $contentEmail->execute();
 $contentContrasena->execute();
 $contentBan->execute();
+$contentIntentos->execute();
 
-$credencialesEmail=$contentEmail->fetchAll(PDO::FETCH_COLUMN);
-$credencialesContrasena=$contentContrasena->fetchAll(PDO::FETCH_COLUMN);
-$estaBaneado=$contentBan->fetchAll(PDO::FETCH_COLUMN);
-
+$credencialesEmail=$contentEmail->fetch(PDO::FETCH_COLUMN);
+$credencialesContrasena=$contentContrasena->fetch(PDO::FETCH_COLUMN);
+$estaBaneado=$contentBan->fetch(PDO::FETCH_COLUMN);
+$numeroIntentos=$contentIntentos->fetch(PDO::FETCH_COLUMN);
 $credencialesContrasenaTrue = password_verify($contrasena, $credencialesContrasena[0]);
 
 $comprobarFechaFinBan = "SELECT fechafinban FROM usuarios WHERE email = '$email'";
 $contentFechaFinBan = $conexion->prepare($comprobarFechaFinBan);
 $contentFechaFinBan->execute();
-$fechaFinBan = $contentFechaFinBan->fetchAll(PDO::FETCH_COLUMN);
+$fechaFinBan = $contentFechaFinBan->fetch(PDO::FETCH_COLUMN);
 
-if($fechaFinBan != null && $fechaFinBan>time()){
-    $estaBaneado[0] = 0;
+$comprobarFechaFinBloqueo = "SELECT fechafinbloqueologin FROM usuarios WHERE email = '$email'";
+$contentFechaFinBloqueo = $conexion->prepare($comprobarFechaFinBloqueo);
+$contentFechaFinBloqueo->execute();
+$fechaFinBloqueo = $contentFechaFinBloqueo->fetch(PDO::FETCH_COLUMN);
+
+if($fechaFinBan != null && $fechaFinBan<=time()){
+    $estaBaneado = 0;
     $cambioBan = "UPDATE usuarios SET baneado = 0, fechafinban = null WHERE email = '$email'";
     $contentCambio = $conexion->prepare($cambioBan);
     $contentCambio->execute();
 }
 
-if($credencialesEmail == null || !$credencialesContrasenaTrue){
-    header('location: loginJugador.php?error=login');
-}else if ($captcha != $respuestacaptcha) {
-    header('location:loginJugador.php?error=captcha');
-}else if ($estaBaneado[0] == 1) {
+if($fechaFinBloqueo != null && $fechaFinBloqueo<=time()){
+    $cambioBloqueo = "UPDATE usuarios SET fechafinbloqueologin = null WHERE email = '$email'";
+    $contentCambioBloq = $conexion->prepare($cambioBloqueo);
+    $contentCambioBloq->execute();
+}
+
+if ($estaBaneado!=0) {
     header('location:loginJugador.php?error=baneaditto');
+}else if($numeroIntentos>=4){
+    $numeroIntentos = 0;
+    $setNumeroIntentos = "UPDATE usuarios SET numerointentosfallidos = " . $numeroIntentos . ", baneado = 1, fechafinban = " . time()+3600 . ", fechafinbloqueologin = " . time()+3600 . " WHERE email = '$email'";
+    $prepNumeroIntentos = $conexion->prepare($setNumeroIntentos);
+    $prepNumeroIntentos->execute();
+    header('location:loginJugador.php?error=intentos');
 }else{
-    echo "Login correcto. Bienvenido<br><a href='loginJugador.php'>Volver al login</a>";
+    if($credencialesEmail == null || !$credencialesContrasenaTrue){
+        $numeroIntentos = $numeroIntentos+1;
+        $setNumeroIntentos = "UPDATE usuarios SET numerointentosfallidos = " . $numeroIntentos . " WHERE email = '$email'";
+        $prepNumeroIntentos = $conexion->prepare($setNumeroIntentos);
+        $prepNumeroIntentos->execute();
+        header('location:loginJugador.php?error=login');
+    }else if ($captcha != $respuestacaptcha) {
+        $numeroIntentos = $numeroIntentos+1;
+        $setNumeroIntentos = "UPDATE usuarios SET numerointentosfallidos = " . $numeroIntentos . " WHERE email = '$email'";
+        $prepNumeroIntentos = $conexion->prepare($setNumeroIntentos);
+        $prepNumeroIntentos->execute();
+        header('location:loginJugador.php?error=captcha');
+    }else{
+        echo "Login correcto. Bienvenido<br><a href='loginJugador.php'>Volver al login</a>";
+    }
 }
 ?>

@@ -25,8 +25,8 @@ if ($correo!=null) {
     header('location:formJugador.php?error=nick');
 }else{
     $sql = "INSERT INTO usuarios 
-        (nombre, apellidos, email, contrasena, nick, terminos, fechanacimiento, fechaAlta, baneado)
-        VALUES (:nombre, :apellidos, :email, :contrasena, :nick, 1, :fechaNac, :fechaAlta, 0)";
+        (nombre, apellidos, email, contrasena, nick, terminos, fechanacimiento, fechaAlta, baneado, numerointentosfallidos)
+        VALUES (:nombre, :apellidos, :email, :contrasena, :nick, 1, :fechaNac, :fechaAlta, 0, 0)";
 
     $stmt = $conexion->prepare($sql);
     $stmt->execute([
