@@ -7,26 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Jugador</title>
-    <style>
-        #formulario{
-            margin: 20px;
-            padding: 10px;
-            background-color: rgba(0,0,0,0.5);
-            line-height: 1.5rem;
-        }
-
-        #formulario label{
-            border: 2px solid red;
-        }
-
-        #formulario label[for=terminos]{
-            border: none;
-        }
-
-        #formulario input[type=text], input[type=email], input[type=password]{
-            width: 400px;
-        }
-    </style>
+    <link rel="stylesheet" href="../static/css/styles.css">
 </head>
 <body>
     <form id="formulario" action="creacionCorrecta.php" method="POST">

@@ -15,17 +15,7 @@ $datos = $usuarios->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Jugadores</title>
-    <style>
-        table{
-            border-radius: 2px;
-            border-style: double;
-            border-color: red;
-        }
-
-        table td{
-            border: 2px solid blue;
-        }
-    </style>
+    <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
     <h1>Lista de jugadores</h1>

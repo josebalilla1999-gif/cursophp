@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'Minecraft';
+    src: url('../templates/Minecraftia.ttf');
+}
+
+*{
+    font-family: 'Minecraft';
+}
+
+h1{
+    text-align: center;    
+}
+
+a{
+    text-align: center;
+    background-color: green;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+table a{
+    background-color: white;
+    text-decoration: none;
+}
+
+table{
+    margin-top: 10px;
+    border-radius: 2px;
+    border-style: double;
+    border-color: red;
+}
+
+table td{
+    border: 2px solid blue;
+}
+
+#formulario{
+    margin: 20px;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.25);
+    line-height: 1.5rem;
+}
+
+#formulario label{
+    border: 2px solid red;
+}
+
+#formulario label[for=terminos]{
+    border: none;
+}
+
+#formulario input[type=text], input[type=email], input[type=password]{
+    width: 400px;
+}

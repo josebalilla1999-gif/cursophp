@@ -9,23 +9,7 @@ $resultado = $cantidad1 + $cantidad2;
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <style>
-        #formulario {
-            margin: 20px;
-            padding: 10px;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        #formulario label {
-            border: 2px solid red;
-        }
-
-        #formulario input[type=text],
-        #formulario input[type=email],
-        #formulario input[type=password] {
-            width: 400px;
-        }
-    </style>
+    <link rel="stylesheet" href="../static/css/styles.css">
 </head>
 
 <body>
