@@ -27,7 +27,7 @@ $credencialesEmail=$contentEmail->fetch(PDO::FETCH_COLUMN);
 $credencialesContrasena=$contentContrasena->fetch(PDO::FETCH_COLUMN);
 $estaBaneado=$contentBan->fetch(PDO::FETCH_COLUMN);
 $numeroIntentos=$contentIntentos->fetch(PDO::FETCH_COLUMN);
-$credencialesContrasenaTrue = password_verify($contrasena, $credencialesContrasena[0]);
+$credencialesContrasenaTrue = password_verify($contrasena, $credencialesContrasena);
 
 $comprobarFechaFinBan = "SELECT fechafinban FROM usuarios WHERE email = '$email'";
 $contentFechaFinBan = $conexion->prepare($comprobarFechaFinBan);
@@ -74,6 +74,9 @@ if ($estaBaneado!=0) {
         $prepNumeroIntentos->execute();
         header('location:loginJugador.php?error=captcha');
     }else{
+        $setNumeroIntentos = "UPDATE usuarios SET numerointentosfallidos = " . 0 . " WHERE email = '$email'";
+        $prepNumeroIntentos = $conexion->prepare($setNumeroIntentos);
+        $prepNumeroIntentos->execute();
         echo "Login correcto. Bienvenido<br><a href='loginJugador.php'>Volver al login</a>";
     }
 }

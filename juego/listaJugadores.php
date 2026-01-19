@@ -29,6 +29,7 @@ $datos = $usuarios->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
     <h1>Lista de jugadores</h1>
+    <a href="admin/crearJugador.php">Crear jugador nuevo</a>
     <table>
         <thead>
             <tr>
