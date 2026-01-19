@@ -13,14 +13,17 @@ h1{
 
 a{
     text-align: center;
-    background-color: green;
+    background-color: rgba(0,255,0,0.25);
     align-items: center;
     margin-bottom: 20px;
+    text-decoration: none;
+    margin-left: 50px;
 }
 
 table a{
     background-color: white;
     text-decoration: none;
+    margin-left: auto;
 }
 
 table{
@@ -28,10 +31,19 @@ table{
     border-radius: 2px;
     border-style: double;
     border-color: red;
+    width: calc(100vw - 10px);
 }
 
 table td{
     border: 2px solid blue;
+    text-align: center;
+}
+
+form{
+    margin: 20px;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.25);
+    line-height: 1.5rem;
 }
 
 #formulario{
@@ -42,7 +54,7 @@ table td{
 }
 
 #formulario label{
-    border: 2px solid red;
+    padding: 10px 10px;
 }
 
 #formulario label[for=terminos]{
@@ -51,4 +63,14 @@ table td{
 
 #formulario input[type=text], input[type=email], input[type=password]{
     width: 400px;
+    padding: 7px 7px;
+    margin: 3px 3px;
+}
+
+form button{
+    margin-bottom: 10px;
+}
+
+form select{
+    height: 30px;
 }

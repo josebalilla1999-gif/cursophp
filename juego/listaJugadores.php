@@ -45,7 +45,7 @@ $datos = $usuarios->fetchAll(PDO::FETCH_ASSOC);
                 <td><?= $dato['email'] ?></td>
                 <td><?= date("d/m/Y", $dato['fechanacimiento']) ?></td>
                 <?php if($dato['baneado'] == 0):?>
-                    <td colspan="2">No</td>
+                    <td colspan="2">No esta baneado</td>
                 <?php endif;?>
                 <?php if($dato['baneado'] == 1):?>
                     <td>Si</td>
