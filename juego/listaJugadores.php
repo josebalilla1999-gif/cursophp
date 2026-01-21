@@ -49,10 +49,10 @@ $datos = $usuarios->fetchAll(PDO::FETCH_ASSOC);
                 <?php endif;?>
                 <?php if($dato['baneado'] == 1):?>
                     <td>Si</td>
-                    <td><?= date("d/m/Y", $dato['fechafinban']) ?></td>
+                    <td><?= date("d/m/Y H:i:s", $dato['fechafinban']) ?></td>
                 <?php endif;?>
                 <?php if($dato['fechabaja'] != null):?>
-                    <td><?= date("d/m/Y", timestamp: $dato['fechabaja']) ?></td>
+                    <td><?= date("d/m/Y H:i:s", timestamp: $dato['fechabaja']) ?></td>
                 <?php endif;?>
                 <?php if($dato['fechabaja'] == null):?>
                     <td>Esta de alta</td>

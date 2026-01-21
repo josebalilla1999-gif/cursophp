@@ -21,6 +21,9 @@ if ($dardebaja == 'si') {
 if ($recuperar == 'si') {
     $fechabaja = null;
 }
+if ($dardebaja == 'no') {
+    $fechabaja = null;
+}
 if ($desbanear == 'si') {
     $baneado = 0;
     $fechafinban = null;
