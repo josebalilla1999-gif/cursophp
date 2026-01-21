@@ -20,3 +20,5 @@ Login con API:
 8. Si está todo correcto, Postman debería devolver un mensaje 200 OK
 
 OJO CUIDAO: el token tiene 15 minutos de vida, si al intentar hacer login aparece un mensaje de "401 Token expirado", repetir los pasos de autenticación
+
+QUE LA FUERZA TE ACOMPAÑE!

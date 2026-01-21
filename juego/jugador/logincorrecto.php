@@ -39,6 +39,16 @@ $contentFechaFinBloqueo = $conexion->prepare($comprobarFechaFinBloqueo);
 $contentFechaFinBloqueo->execute();
 $fechaFinBloqueo = $contentFechaFinBloqueo->fetch(PDO::FETCH_COLUMN);
 
+$comprobarFechaBaja = "SELECT fechabaja FROM usuarios WHERE email = '$email'";
+$contentFechaBaja = $conexion->prepare($comprobarFechaBaja);
+$contentFechaBaja->execute();
+$fechaBaja = $contentFechaBaja->fetch(PDO::FETCH_COLUMN);
+$estaDeBaja = 0;
+
+if($fechaBaja != null){
+    $estaDeBaja = 1;
+}
+
 if($fechaFinBan != null && $fechaFinBan<=time()){
     $estaBaneado = 0;
     $cambioBan = "UPDATE usuarios SET baneado = 0, fechafinban = null WHERE email = '$email'";
@@ -52,6 +62,10 @@ if($fechaFinBloqueo != null && $fechaFinBloqueo<=time()){
     $contentCambioBloq->execute();
 }
 
+if($estaDeBaja!=0){
+    header('location:loginJugador.php?error=baja');
+    exit;
+}
 if ($estaBaneado!=0) {
     header('location:loginJugador.php?error=baneaditto');
 }else if($numeroIntentos>=4){
@@ -77,7 +91,46 @@ if ($estaBaneado!=0) {
         $setNumeroIntentos = "UPDATE usuarios SET numerointentosfallidos = " . 0 . " WHERE email = '$email'";
         $prepNumeroIntentos = $conexion->prepare($setNumeroIntentos);
         $prepNumeroIntentos->execute();
-        echo "Login correcto. Bienvenido<br><a href='loginJugador.php'>Volver al login</a>";
+    ?>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="../static/css/style.css">
+    </head>
+    <body>
+        <p>Login correcto. Bienvenido<br><a href='loginJugador.php'>Volver al login</a></p>
+        <p>Y saco un papelillo<br>
+            Me preparo un cigarrillo<br>
+            Y una china pal canuto de hachis<br>
+            HACHIS<br>
+            Saca ya la china, tron<br>
+            Venga ya esa china, tron<br>
+            Quemame la china, tron<br>
+            NO HAY CHINAS<br>
+            Y saco un papelillo<br>
+            Me preparo un cigarrillo<br>
+            Y una china pal canuto de hachis<br>
+            HACHIS<br>
+            Saca ya la china, tron<br>
+            Venga ya esa china, tron<br>
+            Quemame la china, tron<br>
+            NO HAY CHINAS<br>
+            NO HAY CHINAS HOOOOOY<br>
+            NO HAY CHINAS HOY<br>
+            Lega-legalizacion (CANNABIS)<br>
+            De calidad y barato<br>
+            Lega-legalizacion (CANNABIS)<br>
+            Basta de prohibicion<br>
+            Lega-legalizacion (CANNABIS)<br>
+            De calidad y barato<br>
+            Lega-legalizacion (CANNABIS)<br>
+            Basta de prohibicion<br></p>
+    </body>
+    </html>
+        <?
     }
 }
 ?>

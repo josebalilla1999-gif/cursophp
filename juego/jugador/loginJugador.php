@@ -40,10 +40,13 @@ $resultado = $cantidad1 + $cantidad2;
         <p style="color:red;">❌ Captcha fallido. Inténtalo de nuevo.</p>
     <?php endif; ?>
     <?php if (isset($_GET['error']) && $_GET['error'] === 'baneaditto'): ?>
-        <p style="color:red;">❌ Este jugador esta baneado</p>
+        <p><img src="../static/templates/baneaditto.jpg" width="50px" height="50px"></p>
     <?php endif; ?>
     <?php if (isset($_GET['error']) && $_GET['error'] === 'intentos'): ?>
         <p style="color:red;">❌ Muchos intentos fallidos</p>
+    <?php endif; ?>
+    <?php if (isset($_GET['error']) && $_GET['error'] === 'baja'): ?>
+        <p style="color:red;">❌ Este jugador esta de baja</p>
     <?php endif; ?>
 </body>
 
