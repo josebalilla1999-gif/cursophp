@@ -5,7 +5,7 @@ Autenticación a la API:
 2. Crear una nueva petición POST
 3. Escribir la dirección chema.desarrolloesencial.com/juego/api/auth.php
 4. En el apartado Params, crear una nueva key que se llame "api"
-5. Ponerle como valor una API Key que se te proporciona en este link: https://password.link/KL5f1pfT/#L0lwb3sxV0E1WUF5PmxZKWRu
+5. Ponerle como valor una API Key que se te proporciona en este link: https://password.link/vV5LZGB1/#eUZfQnNKdTdFS2goOWJlcn17
 6. Con todos los datos ya puestos, podemos darle a "Send"
 7. Si está todo correcto, Postman debería devolver un mensaje 200 OK
 
